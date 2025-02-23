@@ -48,7 +48,7 @@ var globalConfig *GlobalConfig
 func init() {
 	var err error
 	globalConfig = new(GlobalConfig)
-	globalConfig.cfg, err = ini.Load("localconf/app.ini")
+	globalConfig.cfg, err = ini.Load("./app.ini")
 	if err != nil {
 		fmt.Printf("config.Init, fail to parse app.ini: %s", err)
 		panic("read config file failed")
