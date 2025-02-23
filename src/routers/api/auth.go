@@ -47,14 +47,8 @@ func GetAuth(c *gin.Context) {
 		return
 	}
 
-	token, err := util.GenerateToken(name, password)
-	if err != nil {
-		appG.Response(http.StatusInternalServerError, constant.ErrorAuthToken, nil)
-		return
-	}
-
 	appG.Response(http.StatusOK, constant.Success, map[string]string{
-		"token":    token,
+		"token":    "123456",
 		"nickname": nickname,
 		"image":    image,
 	})

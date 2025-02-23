@@ -1,9 +1,8 @@
 package routers
 
 import (
-	"github.com/gin-gonic/gin" //nolint:goimports
+	"github.com/gin-gonic/gin"
 	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
-	"github.com/sunshine-walker-93/phoenix_gateway/src/middleware/jwt"
 	"github.com/sunshine-walker-93/phoenix_gateway/src/middleware/request"
 	api2 "github.com/sunshine-walker-93/phoenix_gateway/src/routers/api"
 	v1 "github.com/sunshine-walker-93/phoenix_gateway/src/routers/api/v1"
@@ -22,7 +21,7 @@ func InitRouter() *gin.Engine {
 	r.POST("/login", api2.GetAuth)
 
 	apiV1 := r.Group("/api/v1")
-	apiV1.Use(jwt.JWT())
+	// apiV1.Use(jwt.JWT())
 	{
 		// 获取用户基本信息
 		apiV1.GET("/profile", v1.GetProfile)

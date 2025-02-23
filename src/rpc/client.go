@@ -2,28 +2,30 @@ package rpc
 
 import (
 	"context"
-	"fmt"
 	"time"
 
-	pb "github.com/sunshine-walker-93/phoenix_apis/protobuf/user_info_manage"
+	pb "github.com/sunshine-walker-93/phoenix_apis/protobuf3.pb/user_info_manage"
 	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
 	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
 	"github.com/sunshine-walker-93/phoenix_gateway/src/util"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
+
+	"github.com/micro/plugins/v5/registry/etcd"
+	goMicro "go-micro.dev/v5"
+	"go-micro.dev/v5/registry"
 )
 
-var GrpcClient UserServiceClient
+var GrpcClient pb.UserService
 
 func init() {
-	pb.UserService
-	conn, err := grpc.Dial(fmt.Sprintf(":%d", config.GetGlobalConfig().DaoServerSetting.GrpcPort),
-		grpc.WithTransportCredentials(insecure.NewCredentials()))
-	if err != nil {
-		log.Fatalf("grpc.Dial err: %s", err)
-	}
+	etcdReg := etcd.NewRegistry(
+		registry.Addrs("etcd:2379"),
+	)
+	// 初始化服务
+	srv := goMicro.NewService(
+		goMicro.Registry(etcdReg),
+	)
 
-	GrpcClient = NewUserServiceClient(conn)
+	GrpcClient = pb.NewUserService("phoenix_account", srv.Client())
 }
 
 // Register 注册接口
@@ -32,7 +34,7 @@ func Register(requestID string, name string, password string) error {
 		time.Duration(config.GetGlobalConfig().AppSetting.DeadlineSecond)*time.Second)
 	defer cancel()
 
-	_, err := GrpcClient.Register(ctx, &RegisterRequest{RequestID: requestID, Name: name, Password: password})
+	_, err := GrpcClient.Register(ctx, &pb.RegisterRequest{RequestID: requestID, Name: name, Password: password})
 	if err != nil {
 		log.Warnf("call Register failed, err:%v", err)
 		return err
@@ -47,7 +49,7 @@ func Auth(requestID string, name string, password string) (string, string, error
 		time.Duration(config.GetGlobalConfig().AppSetting.DeadlineSecond)*time.Second)
 	defer cancel()
 
-	rsp, err := GrpcClient.Auth(ctx, &AuthRequest{RequestID: requestID, Name: name, Password: password})
+	rsp, err := GrpcClient.Auth(ctx, &pb.AuthRequest{RequestID: requestID, Name: name, Password: password})
 	if err != nil {
 		log.Warnf("call Auth failed, err:%v", err)
 		return "", "", err
@@ -62,7 +64,7 @@ func GetProfile(requestID string, name string) (info *util.ProfileInfo, err erro
 		time.Duration(config.GetGlobalConfig().AppSetting.DeadlineSecond)*time.Second)
 	defer cancel()
 
-	rsp, err := GrpcClient.GetProfile(ctx, &GetProfileRequest{RequestID: requestID, Name: name})
+	rsp, err := GrpcClient.GetProfile(ctx, &pb.GetProfileRequest{RequestID: requestID, Name: name})
 	if err != nil {
 		log.Warnf("call GetProfile failed, err:%v", err)
 		return nil, err
@@ -77,7 +79,7 @@ func GetHeadImage(requestID string, imageID string) (image []byte, err error) {
 		time.Duration(config.GetGlobalConfig().AppSetting.DeadlineSecond)*time.Second)
 	defer cancel()
 
-	rsp, err := GrpcClient.GetHeadImage(ctx, &GetHeadImageRequest{RequestID: requestID, ImageID: imageID})
+	rsp, err := GrpcClient.GetHeadImage(ctx, &pb.GetHeadImageRequest{RequestID: requestID, ImageID: imageID})
 	if err != nil {
 		log.Warnf("call GetHeadImage failed, err:%v", err)
 		return nil, err
@@ -92,7 +94,7 @@ func EditProfile(requestID string, name string, nickname string, image []byte) e
 		time.Duration(config.GetGlobalConfig().AppSetting.DeadlineSecond)*time.Second)
 	defer cancel()
 
-	_, err := GrpcClient.EditProfile(ctx, &EditProfileRequest{RequestID: requestID,
+	_, err := GrpcClient.EditProfile(ctx, &pb.EditProfileRequest{RequestID: requestID,
 		Name: name, Nickname: nickname, Image: image})
 	if err != nil {
 		log.Warnf("call EditProfile failed, err:%v", err)
