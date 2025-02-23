@@ -1,11 +1,12 @@
 package request
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/constant"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	nanoid "github.com/matoous/go-nanoid"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	nanoid "github.com/matoous/go-nanoid"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/constant"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
 )
 
 // GenRequestID 生成全局请求id

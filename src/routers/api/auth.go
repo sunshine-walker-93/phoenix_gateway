@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/constant"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/rpc"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/util"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/constant"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/rpc"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/util"
 
 	"net/http"
 

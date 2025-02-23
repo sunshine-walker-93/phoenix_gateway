@@ -3,13 +3,14 @@ package v1
 import (
 	"bytes"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/constant"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/rpc"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/util"
 	"io"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/constant"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/rpc"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/util"
 )
 
 // GetProfile 查询用户基本信息
@@ -85,6 +86,7 @@ func GetHeadImage(c *gin.Context) {
 }
 
 // EditProfile 编辑用户的属性信息
+//
 //nolint:funlen
 func EditProfile(c *gin.Context) {
 	appG := util.Gin{C: c}

@@ -1,14 +1,3 @@
-FROM golang:latest
-
-ENV GOPROXY https://goproxy.cn,direct
-WORKDIR $GOPATH/src/phoenix_gateway
-COPY . $GOPATH/src/phoenix_gateway
-RUN go build .
-
-EXPOSE 8000
-ENTRYPOINT ["./phoenix_gateway"]
-
-
 # 第一步编译go文件
 FROM golang:1.24-alpine AS builder
 

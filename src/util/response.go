@@ -3,7 +3,7 @@ package util
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/constant"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/constant"
 )
 
 type Gin struct {

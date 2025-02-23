@@ -1,8 +1,9 @@
 package util
 
 import (
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/config"
 	"strings"
+
+	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
 )
 
 // CheckImageSize 检查图片大小是否合法

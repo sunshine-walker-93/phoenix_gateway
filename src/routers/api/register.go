@@ -1,13 +1,14 @@
 package api
 
 import (
+	"net/http"
+
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/constant"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/rpc"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/util"
-	"net/http"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/constant"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/rpc"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/util"
 )
 
 type registerInfo struct {

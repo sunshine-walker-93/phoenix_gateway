@@ -2,11 +2,11 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin" //nolint:goimports
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/config"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/middleware/jwt"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/middleware/request"
-	api2 "github.com/lucky-cheerful-man/phoenix_gateway/src/routers/api"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/routers/api/v1"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/middleware/jwt"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/middleware/request"
+	api2 "github.com/sunshine-walker-93/phoenix_gateway/src/routers/api"
+	v1 "github.com/sunshine-walker-93/phoenix_gateway/src/routers/api/v1"
 )
 
 func init() {

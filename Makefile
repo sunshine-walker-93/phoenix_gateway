@@ -13,7 +13,7 @@ lint:
 	golint ./...
 
 clean:
-	rm -rf github.com/lucky-cheerful-man/phoenix_gateway
+	rm -rf github.com/sunshine-walker-93/phoenix_gateway
 	go clean -i .
 
 help:

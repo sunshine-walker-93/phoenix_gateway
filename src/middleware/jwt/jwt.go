@@ -1,12 +1,13 @@
 package jwt
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/constant"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/util"
-	"net/http"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/constant"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/util"
 )
 
 // JWT is jwt middleware

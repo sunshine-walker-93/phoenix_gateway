@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/config"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/routers"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/routers"
 )
 
 func main() {

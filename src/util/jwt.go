@@ -1,9 +1,10 @@
 package util
 
 import (
-	"github.com/golang-jwt/jwt"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/config"
 	"time"
+
+	"github.com/golang-jwt/jwt"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
 )
 
 var jwtSecret []byte

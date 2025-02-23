@@ -3,13 +3,14 @@ package rpc
 import (
 	"context"
 	"fmt"
-	pb "github.com/lucky-cheerful-man/phoenix_apis/protobuf.pb/user_info_manage"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/config"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/log"
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/util"
+	"time"
+
+	pb "github.com/sunshine-walker-93/phoenix_apis/protobuf/user_info_manage"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/log"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/util"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"time"
 )
 
 var GrpcClient UserServiceClient

@@ -1,9 +1,9 @@
 package log
 
 import (
-	"github.com/lucky-cheerful-man/phoenix_gateway/src/config"
 	"github.com/natefinch/lumberjack"
 	"github.com/sirupsen/logrus"
+	"github.com/sunshine-walker-93/phoenix_gateway/src/config"
 )
 
 var log = logrus.New()
