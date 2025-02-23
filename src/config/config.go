@@ -54,9 +54,9 @@ func init() {
 		panic("read config file failed")
 	}
 
-	mapTo("app", globalConfig.AppSetting)
-	mapTo("server", globalConfig.ServerSetting)
-	mapTo("dao-server", globalConfig.DaoServerSetting)
+	mapTo("app", &globalConfig.AppSetting)
+	mapTo("server", &globalConfig.ServerSetting)
+	mapTo("dao-server", &globalConfig.DaoServerSetting)
 
 	globalConfig.ServerSetting.ReadTimeout *= time.Second
 	globalConfig.ServerSetting.WriteTimeout *= time.Second
